@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIMESAVVY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"> <img src="logo.png" alt="Company Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="TIME SAVVY MANUAL.pdf">User Manual</a></li>
+            <li><a href="TIMESAVVY.pdf">Documentation</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="bg" class="background">
+        <div class="content">
+            <div class="left-side">
+                <h1>TIME SAVVY</h1>
+                <p>Beautiful High Converting Timesheet and Worklog Portal</p>
+                <p>Revolutionize timesheet management process by automating manual tasks and providing a user-friendly
+                    interface for efficient timesheet generation.
+                </p>
+                <div class="buttons">
+                    <button class="btn btn-features">Features</button>
+                    <button class="btn btn-feadback">Feedback</button>
+                </div>
+            </div>
+            <div id='login-box' class="right-side">
+                <h2>Get Started</h2>
+                <form id="loginForm">
+                    <input type="text" id="indxxId" placeholder="Indxx ID">
+                    <button type="submit" class="btn subscribe">Login</button>
+                </form>
+                <p class='privacy text-center'>We will not share your Indxx ID. Read our <a href="#">privacy policy</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="features" class="features-section">
+        <h1>Salient Features!</h1>
+        <div class="features-container">
+            <div class="feature-box">
+                <p>Create an intuitive user interface to replace manual Excel timesheets.</p>
+            </div>
+            <div class="feature-box">
+                <p>Integrate built-in checks and alerts for accurate data entry.</p>
+            </div>
+            <div class="feature-box">
+                <p>Eliminate manual onboarding in Excel, reducing administrative tasks.</p>
+            </div>
+        </div>
+        <div class="features-container">
+            <div class="feature-box">
+                <p>Enable detailed visibility for approvers to quickly review and approve timesheets.</p>
+            </div>
+            <div class="feature-box">
+                <p>Implement automatic format updates across all relevant sheets for consistency.</p>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="feedback-section">
+                <h2>We value your feedback!</h2>
+                <form id="feedbackForm">
+                    <div class="input-container">
+                        <div class="input-group-footer">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="input-group-footer">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <label for="feedback">Feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="4" required></textarea>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+                <p id="responseMessage"></p>
+            </div>
+        </div>
+        <p id="copyright">
+            &copy; All Rights Reserved. Indxx Capital Management Pvt. Ltd.
+        </p>
+            
+    </footer>
+
+    <div id="main-content" class="container" style="display: none;">
+        <div id="sidebar" class="sidebar" style="display:none;">
+            <ul>
+                <li id="profile-btn" class="active" data-section="overview">Profile</li>
+                <li id="timesheet-btn" data-section="posts">Timesheet</li>
+                <li id="fetch-timesheet-btn" data-section="posts">Downloads</li>
+                <li id="comp-off-btn" data-section="posts">Comp Off</li>
+                <li id="admin-panel-btn" data-section="settings">Admin Panel</li>
+                <li id="logout" data-section="logout"><button class="btn" onclick="handleLogout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+        <div id="profile" class="main-content" style="display:none;">
+            <div id="profile-description">
+                <div class="profile-image">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h1 id="employee-name">Samantha Jones</h1>
+                <p id="codes"></p>
+                <p id="project-details"></p>
+                <p id="mgr">Manager: </p>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <strong>Department</strong>
+                        <span id="dept">Friends</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Level</strong>
+                        <span id="lev">Friends</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Start Date</strong>
+                        <span id="date">Comments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="time_sheet" class="timesheet">
+            <h1>Timesheet</h1>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <input type="number" id="year" min="2000" max="2024" value="2024" step="1">
+                </div>
+                <div class="form-group">
+                    <label for="month">Month</label>
+                    <select id="month">
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <br><button id="generate" class="btn btn-primary">Generate</button>
+                </div>
+            </div>
+            <div class="grid" id="grid"></div>
+            <button class="btn btn-success save-btn" id="save">Save</button>
+        </div>
+        <div id="fetch_time_sheet" class="timesheet">
+            <h1>Download Timesheet</h1>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="year_fetch">Year</label>
+                    <input type="number" id="year_fetch" min="2000" max="2024" value="2024" step="1">
+                </div>
+                <div class="form-group">
+                    <label for="month_fetch">Month</label>
+                    <select id="month_fetch">
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <br><button id="fetch" class="btn btn-primary">Fetch and Download</button>
+                </div>
+            </div>
+            <div class="grid" id="grid_fetch"></div>
+        </div>
+        <div id="comp_off" class="comp_off">
+            <h1>Comp-Off</h1>
+            <div class="input-group" id="ind">
+                <label for="indxx_id">Indxx ID:</label>
+                <input type="text" id="indxx_id_compoff" placeholder="Enter Indxx ID">
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="input-group" style="width: 50%;">
+                        <label for="from_date">From Date:</label>
+                        <input type="date" id="from_date">
+                    </div>
+                    <div class="input-group" style="width: 50%;">
+                        <label for="to_date">To Date:</label>
+                        <input type="date" id="to_date">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="transaction_status">Status:</label>
+                    <select id="transaction_status">
+                        <option value="NOT AVAILED">NOT AVAILED</option>
+                        <option value="AVAILED">AVAILED</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group_1">
+                <button id="submit_button" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <div id="admin_panel" class="admin_panel" style="display: none;">
+            <div class="subnavbar">
+                <ul class="nav-links subnav-links">
+                    <li id="timesheet_status-btn" class="tab-link" data-tab="Timesheet status">Timesheet Status</li>
+                    <li id="edit_timesheet-btn" class="tab-link" data-tab="Edit timesheet">Edit Timesheet</li>
+                    <li id="stoxx_sheet-btn" class="tab-link" data-tab="Stoxx sheet">Stoxx Sheet</li>
+                    <li id="upload_download-btn" class="tab-link" data-tab="Upload_download section">Upload/Download
+                        Section</li>
+                    <li id="role_allocation-btn" class="tab-link" data-tab="Role allocation">Role Allocation</li>
+                </ul>
+            </div>
+            <div id="timesheet_status">
+                <div class="header">
+                    <h1>Timesheet Window</h1>
+                </div>
+                <div class="timesheet-window">
+                    <button id="freeze-btn">Freeze</button>
+                    <button id="unfreeze-btn">Unfreeze</button>
+                    <div id="status-msg"></div>
+                </div>
+                <div class="timesheet-status">
+                    <h2>Timesheet Status</h2>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="select-all-ts">
+                        <label for="'select-all-ts">
+                            Select all
+                        </label>
+                    </div>
+                    <select id="project-names" multiple></select>
+                    <button id="fetch-data-btn">Timesheet Status Data</button>
+                </div>
+                <div id="chart-container"></div>
+                <div id="tables-container" class="grid"></div>
+            </div>
+            <div id="edit_timesheet" class="edit_time_sheet">
+                <h1>Edit Timesheet</h1>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="indxx_id">Indxx ID</label>
+                        <input id="indxx_id_edit" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="number" id="year_edit" min="2000" max="2024" value="2024" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Month</label>
+                        <select id="month_edit">
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <br><button id="generate_edit" class="btn btn-primary">Generate</button>
+                    </div>
+                </div>
+                <div class="grid" id="grid_edit"></div>
+                <button class="btn btn-success save-btn" id="save_edit">Save</button>
+            </div>
+            <div class="stoxx-content" id="stoxx_sheet">
+                <h1>Download Stoxx Sheet</h1>
+                <div class="input-group">
+                    <label for="year">Year</label>
+                    <input type="number" id="year_stoxx" min="2000" max="2024" value="2024">
+                </div>
+                <div class="input-group">
+                    <label for="month">Month</label>
+                    <select id="month_stoxx">
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                </div>
+                <h2>Select the project code:</h2>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="select-all">
+                    <label for="select-all">Select All</label>
+                </div>
+                <div class="project-codes" id="project-codes_stoxx">
+                    <!-- Project codes checkboxes will be populated by JavaScript -->
+                </div>
+                <button id="download-button">Download Stoxx Sheet</button>
+                <div id="status"></div>
+            </div>
+            <div id="upload_download" class="upload_download">
+                <div class="section">
+                    <h2 class="upload-header">Upload Employee Data</h2>
+                    <input type="file" id="employee-file" accept=".csv">
+                    <button class="upload-button" id="upload-employee-button">Upload Employee Data</button>
+                    <hr>
+                    <a href="sample_employee_data.csv" download="sample_employee_data.csv"
+                        class="download-button">Download Employee Data Sample File</a>
+                </div>
+
+                <div class="section">
+                    <h2 class="upload-header">Upload Leavesheet Data</h2>
+                    <input type="file" id="leavesheet-file" accept=".csv">
+                    <button class="upload-button" id="upload-leavesheet-button">Upload Leavesheet</button>
+                    <hr>
+                    <a href="sample_leavesheet_data.csv" download="sample_leavesheet_data.csv"
+                        class="download-button">Download Leavesheet Sample File</a>
+                </div>
+
+                <div class="section">
+                    <h2 class="upload-header">Upload Holidaysheet Data</h2>
+                    <input type="file" id="holidaysheet-file" accept=".csv">
+                    <button class="upload-button" id="upload-holidaysheet-button">Upload Holidaysheet</button>
+                    <hr>
+                    <a href="Holiday_Demo_Data.csv" download="sample_holiday_data.csv" class="download-button">Download
+                        Holiday Sample File</a>
+                </div>
+            </div>
+            <div id="role_allocation" class="role_allocation">
+                <h2>Role Allocation</h2>
+                <div class="form-group">
+                    <label for="indxx-id">Enter Indxx ID:</label>
+                    <input type="text" id="indxx_id_role" name="indxx-id">
+                </div>
+
+                <div class="radio-group">
+
+                    <label>
+                        <input type="radio" name="role" value="Super User"> Super User
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="Admin"> Admin
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="User"> User
+                    </label>
+                </div>
+
+                <button id="submit-role-button">Submit Role</button>
+
+                <div id="message_role"></div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,877 @@
+/* Keyframes for fadeInLeft and fadeInRight animations */
+@keyframes fadeInLeft {
+   0% {
+       opacity: 0;
+       transform: translateX(-50px);
+   }
+   100% {
+       opacity: 1;
+       transform: translateX(0);
+   }
+}
+
+@keyframes fadeInRight {
+   0% {
+       opacity: 0;
+       transform: translateX(50px);
+   }
+   100% {
+       opacity: 1;
+       transform: translateX(0);
+   }
+}
+
+/* Apply animations to elements */
+.left-side {
+   animation: fadeInLeft 2s forwards; /* Apply fadeInLeft animation */
+}
+
+.right-side {
+   animation: fadeInRight 2s forwards; /* Apply fadeInRight animation */
+}
+
+/* Other existing styles... */
+body,
+html {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   font-family: Arial, sans-serif;
+   overflow-x: hidden;
+}
+
+body {
+   background: rgba(0, 0, 0, 0.5) url('bg.jpg');
+   font-family: "Lato", "Serif";
+   background-size: cover;
+   background-blend-mode: darken;
+   background-position: center;
+   width: 100%;
+   height: 100%;
+}
+
+.background {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.navbar {
+   width: 100%;
+   background: rgba(0, 0, 0, 0.7) url('bg.jpg');
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0.75rem 2rem;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+   background-size: cover;
+   background-blend-mode: darken;
+}
+
+.logo img {
+   height: 40px;
+}
+
+.nav-links {
+   list-style: none;
+   display: flex;
+   color: white;
+   margin: 0;
+   padding: 0;
+   padding-right: 93px;
+}
+
+.nav-links li {
+   margin-left: 2rem;
+}
+
+.nav-links a {
+   text-decoration: none;
+   color: white;
+   font-size: 1.1rem;
+   transition: background-color 0.5s ease;
+   transition: padding 0.5s ease;
+}
+
+.nav-links a:hover {
+   color: #edf0f6; /* Change text color on hover */
+   background-color: rgba(8, 130, 243, 0.7); /* Background color with opacity */
+   padding: 0.5rem 1rem; /* Adjust padding as needed */
+   border-radius: 5px; /* Rounded corners */
+}
+
+.content {
+   display: flex;
+   flex-wrap: wrap;
+   position: relative;
+   color: white;
+   border-radius: 10px;
+   overflow: hidden;
+   max-width: 1300px;
+   width: 100%;
+   justify-content: space-between;
+}
+
+.left-side, .right-side {
+   padding: 2rem;
+   flex: 1 1 50%;
+   box-sizing: border-box;
+   position: relative;
+   z-index: 1;
+   color: white;
+}
+
+.left-side {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   max-width: 50%;
+}
+
+.left-side h1 {
+   font-size: 2.5rem;
+   margin-bottom: 1rem;
+}
+
+.left-side p {
+   font-size: 1.1rem;
+   margin-bottom: 1rem;
+}
+
+.privacy a {
+   text-decoration: underline;
+   color: white;
+   font-weight: 300;
+}
+
+.buttons {
+   margin-top: 1rem;
+}
+
+.btn {
+   background-color: transparent;
+   color: #d3d5dc;
+   border: 1px solid #7070cd;
+   padding: 0.75rem 1.5rem;
+   margin: 0.5rem;
+   cursor: pointer;
+   border-radius: 5px;
+   font-size: 1rem;
+}
+
+.btn:hover {
+   background-color: #92aace1f;
+   color: rgb(222, 229, 224);
+}
+
+.right-side {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: rgba(47, 47, 104, 0.55);
+   border-radius: 10px;
+   padding: 2rem;
+   max-width: 400px;
+   width: 100%;
+   box-sizing: border-box;
+   text-align: center;
+   margin-left: auto;
+}
+
+.right-side h2 {
+   font-size: 1.5rem;
+   margin-bottom: 1rem;
+   color: #ede7e7;
+   padding-bottom:20px;
+}
+
+.right-side input {
+   width: 100%;
+   padding: 0.75rem;
+   margin-bottom: 1rem;
+   border: 0.5px solid #597de2;
+   border-radius: 5px;
+   font-size: 1rem;
+   box-sizing: border-box;
+   background: transparent;
+   color: white
+}
+
+.right-side input::placeholder {
+   color: white;
+   opacity: 0.7;
+}
+
+.right-side .subscribe {
+   width: 100%;
+   margin-left: 0px;
+   padding: 0.75rem;
+   border-radius: 5px;
+   border: none;
+   background-color: #4bb845;
+   color: white;
+   font-size: 1rem;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.right-side .subscribe:hover {
+   background-color: #0a721f;
+}
+
+.right-side p {
+   font-size: 0.8rem;
+   color: #d6c9c9;
+   margin-top: 1rem;
+   text-align: center;
+}
+
+.privacy a {
+   text-decoration: none;
+   color: #d6c9c9;
+   font-weight: 300;
+}
+
+@media (max-width: 768px) {
+   .content {
+       flex-direction: column;
+   }
+
+   .left-side, .right-side {
+       flex: 1 1 100%;
+       max-width: 100%;
+   }
+}
+.features-section {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 2rem;
+   background: rgba(0, 0, 0, 0.5) url('feature.jpg');
+   background-size: cover;
+   background-blend-mode: darken;
+   background-position: center;
+   height: 85vh; /* Cover the whole page height */
+}
+
+.features-section h1 {
+   text-align: center;
+   color: #ede7e7;
+   font-family: 'Arial', sans-serif;
+   margin-bottom: 2rem;
+}
+
+.features-container {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   margin-bottom: 1rem;
+}
+@keyframes fadeIn {
+   from {
+       opacity: 0;
+   }
+   to {
+       opacity: 1;
+   }
+}
+.feature-box {
+   background-color: rgba(0, 51, 102,0.8);
+   color: white;
+   padding: 1rem;
+   border-radius: 10px;
+   box-shadow: 0 10px 31px rgba(0, 0, 0, 1.0);
+   margin: 1rem;
+   width: 28%;
+   min-width: 200px;
+   text-align: center;
+   opacity: 0;
+   /* animation: fadeIn 1.5s ease-in-out forwards; */
+   transform: translateY(20px); /* Initial position for pop effect */
+   transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+.feature-box.show {
+   opacity: 1; /* Fade in */
+   transform: translateY(0); /* Move to final position */
+}
+.feature-box:hover {
+   transform: scale(1.05);
+   transition: transform 0.2s ease;
+}
+.feature-box p {
+   font-size: 2rem;
+   margin: 1rem;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+   .features-container {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .feature-box {
+       width: 80%;
+   }
+}
+
+
+.container {
+   display: flex;
+   width: 100%;
+   margin-top:68px;
+   height: calc(100vh - 68px);
+}
+.main-content {
+   /* margin-top: 80px; Adjust to avoid overlapping with navbar */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+
+.profile-image i {
+   font-size: 100px;
+   color: #ccc;
+   margin-top: -60px;
+   background: white;
+   border-radius: 50%;
+   padding: 10px;
+}
+#profile-description {
+   background-color: #dae9ed;
+   border-radius: 15px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   width: 400px;
+   text-align: center;
+   padding: 20px;
+   position: relative;
+}
+.sidebar {
+   animation: fadeInLeft 1s forwards; /* Apply fadeInLeft animation */
+}
+
+.main-content {
+   animation: fadeInRight 1s forwards; /* Apply fadeInRight animation */
+}
+#profile-description h1 {
+   margin: 10px 0;
+}
+
+.profile-stats {
+   display: flex;
+   justify-content: space-around;
+   margin: 20px 0;
+}
+
+.stat {
+   text-align: center;
+}
+
+.stat strong {
+   display: block;
+   font-size: 1.2em;
+}
+.sidebar {
+   width: 250px;
+   background-color: #2c3e50;
+   color: white;
+   display: flex;
+   flex-direction: column;
+}
+
+.sidebar ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.sidebar li {
+   padding: 20px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+#profile-description:hover {
+   transform: scale(1.05);
+   transition: transform 0.2s ease;
+}
+.sidebar li:hover,
+.sidebar li.active {
+   background-color: #34495e;
+}
+
+.main-content {
+   flex: 1;
+   padding: 20px;
+}
+
+.timesheet {
+   max-width: 1000px;
+   margin: 0 auto;
+   background-color: rgba(255, 255, 255, 0.1); /* Slight white transparency */
+   padding: 20px;
+   border-radius: 10px;
+}
+
+
+.form-container {
+   display: inline-block;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 20px;
+   width: 1000px;
+}
+
+.form-group {
+   flex: 1;
+   margin-right: 10px;
+   width: 70%;
+   margin:auto;
+}
+
+label {
+   display: block;
+   margin-bottom: 5px;
+   color: #e8e4e4;
+}
+
+input, select {
+   width: 100%;
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+   background-color: white;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.form-group:last-child {
+   margin: auto;
+   width: 20%;
+}
+.btn-primary {
+   width: 100%;
+   margin:auto;
+   margin-left: 0px;
+   align-self: center;
+   padding: 0.75rem;
+   border-radius: 5px;
+   border: none;
+   background-color: #4bb845;
+   color: white;
+   font-size: 1rem;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+   background-color: #0a721f;
+}
+
+.grid {
+   background-color: white;
+   border-radius: 5px;
+   overflow: hidden;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+th, td {
+   padding: 12px;
+   text-align: left;
+   border-bottom: 1px solid #eee;
+}
+th {
+   background-color: #f8f8f8;
+   font-weight: bold;
+}
+
+tr:nth-child(even) {
+   background-color: #f9f9f9;
+}
+.form-group input,select,.input-group input,select{
+   width: 100%;
+   padding: 0.75rem;
+   margin-bottom: 1rem;
+   border: 0.5px solid #597de2;
+   border-radius: 5px;
+   font-size: 1rem;
+   box-sizing: border-box;
+   background: rgb(8 38 67 / 71%);
+   color: white
+}
+
+.timesheet h1 {
+   font-size: 2.0rem;
+   margin-bottom: 1rem;
+   color: #ede7e7;
+   padding-bottom:20px;
+}
+.btn-success{
+   margin: 10px auto;
+   width: 250px;
+   background-color: #4bb845;
+   color:white;
+}
+.btn-success:hover {
+   background-color: #0a721f;
+}
+
+
+.stoxx-content {
+   background-color: rgba(255, 255, 255, 0.1); /* Slight white transparency */
+   width: 80%;
+   margin: 68px auto;
+   padding: 8px;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.stoxx-content h1,h2{
+   color: #d3d5dc;
+}
+.checkbox-group {
+   /* flex: 1 0 45%; */
+   /* align-items: center; */
+   display:flex;
+   margin: 5px;;
+}
+.checkbox-group label{
+   margin: 0;
+}
+.checkbox-group input[type="checkbox"] {
+   width: 7%;
+}
+.project-codes {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.project-codes div {
+   flex: 1 0 45%;
+   align-items: center;
+   display:flex;
+   margin: 5px;
+}
+.project-codes input[type="checkbox"] {
+   margin-right: 5px; /* Adjust the spacing between the checkbox and the label */
+   width: 14%;
+   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+button {
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: #0056b3;
+}
+.comp_off {
+   max-width: 600px;
+   width: 80%;
+   margin: auto;
+   background: rgba(255, 255, 255, 0.1);
+   padding: 20px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.comp_off h1{
+   color: #d3d5dc;
+}
+.column {
+   display: flex;
+   justify-content: space-around;
+}
+
+.column:last-child {
+   margin-right: 0;
+}
+.form-group_1 {
+   flex: 1;
+   margin-right: 10px;
+   width: 30%;
+   margin:auto;
+}
+.subnavbar {
+   width: 82%;
+   background: rgba(0, 0, 0, 0.7) url('bg.jpg');
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 0.75rem 2rem;
+   position: fixed;
+   /* top: 0; */
+   /* left: 0; */
+   z-index: 1000;
+   background-size: cover;
+   background-blend-mode: darken;
+}
+.subnav-links li{
+   font-size: 1.5rem;
+   transition: background-color 0.5s ease;
+   transition: padding 0.5s ease;
+}
+.subnav-links li:hover{
+   color: #edf0f6; /* Change text color on hover */
+   background-color: rgba(8, 130, 243, 0.7); /* Background color with opacity */
+   padding: 0.5rem 1rem; /* Adjust padding as needed */
+   border-radius: 5px; /* Rounded corners */
+}
+.tab-link-active{
+   color: #edf0f6; /* Change text color on hover */
+   background-color: rgba(8, 130, 243, 0.7); /* Background color with opacity */
+   padding: 0.5rem 1rem; /* Adjust padding as needed */
+   border-radius: 5px; /* Rounded corners */
+}
+.admin_panel{
+   width: 100%;
+}
+#timesheet_status {
+   width: 80%;
+   margin: 68px auto;
+   padding: 20px;
+   background-color:rgba(255 , 255, 255, 0.1);
+   box-shadow: 0 0 10px rgba(174, 159, 159, 0.5);
+}
+#timesheet_status h1{
+   color: #d3d5dc;
+}
+#status-msg{
+   color: #d3d5dc;
+}
+.timesheet-status select {
+   width: 100%;
+   height: 150px; /* Adjust height as needed */
+   overflow: auto;
+}
+
+.header, .timesheet-window, .timesheet-status {
+   margin-bottom: 20px;
+}
+
+.header h1, .timesheet-status h2 {
+   font-size: 24px;
+   font-weight: bold;
+}
+#select-all-ts{
+   color: #d3d5dc;
+}
+
+.timesheet-window button, .timesheet-status button {
+   margin-right: 10px;
+   padding: 10px 20px;
+   font-size: 16px;
+}
+
+#status-msg {
+   margin-top: 10px;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+#project-names {
+   width: 100%;
+   height: 100px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+#chart-container, #tables-container {
+   margin-top: 20px;
+}
+.edit_time_sheet {
+   max-width: 1000px;
+   margin: 68px auto;
+   background-color: rgba(255, 255, 255, 0.1); /* Slight white transparency */
+   padding: 20px;
+   border-radius: 10px;
+}
+.edit_time_sheet h1 {
+   font-size: 2.0rem;
+   margin-bottom: 1rem;
+   color: #ede7e7;
+   padding-bottom:20px;
+}
+.upload_download{
+   max-width: 1000px;
+   margin: 68px auto;
+   background-color: rgba(255, 255, 255, 0.1); /* Slight white transparency */
+   padding: 20px;
+   border-radius: 10px;
+}
+.section {
+   margin-bottom: 30px;
+   padding:15px;
+}
+
+.upload-header {
+   font-size: 24px;
+   font-weight: bold;
+   margin-bottom: 10px;
+}
+
+.upload-button, .download-button {
+   margin-top: 10px;
+   background-color: #4bb845;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+}
+
+.upload-button:hover, .download-button:hover {
+   background-color: #0a721f;
+}
+
+hr {
+   margin-top: 20px;
+   border: 0;
+   height: 1px;
+   background: #e2e2e2;
+}
+.role_allocation{
+   max-width: 1000px;
+   margin: 68px auto;
+   background-color: rgba(255, 255, 255, 0.1); /* Slight white transparency */
+   padding: 20px;
+   border-radius: 10px;
+}
+.radio-group {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   margin-top: 10px;
+   margin-bottom: 20px;
+}
+
+.radio-group label {
+   margin-right: 10px;
+}
+
+button {
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   text-align: center;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 10px;
+}
+
+button:hover {
+   background-color: #45a049;
+}
+
+#message {
+   margin-top: 20px;
+   text-align: center;
+}
+
+footer {
+   background-color:#01031d9c;
+   color: #fff;
+   padding: 20px 0;
+   /* position: absolute; */
+   bottom: 0;
+   width: 100%;
+}
+
+.footer-content {
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 0 20px;
+   display: flex;
+   justify-content: flex-start;
+}
+
+.feedback-section {
+   text-align: left;
+   width: 100%;
+}
+
+.feedback-section h2 {
+   margin-bottom: 10px;
+}
+
+.feedback-section form {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.input-container {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   max-width: 600px;
+   margin-bottom: 10px;
+}
+
+.input-group-footer {
+   display: flex;
+   flex-direction: column;
+   width: 48%;
+}
+
+.feedback-section form label {
+   margin: 5px 0;
+}
+
+.feedback-section form input,
+.feedback-section form textarea {
+   width: 100%;
+   background: rgb(216 220 240 / 79%);
+   padding: 10px;
+   margin-top: 5px;
+   border: none;
+   border-radius: 5px;
+}
+
+.feedback-section form button {
+   margin-top: 10px;
+   background-color: #4bb845;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+}
+
+.feedback-section form button:hover {
+   background-color: #0a721f;
+}
+
+#responseMessage {
+   margin-top: 10px;
+   font-size: 1em;
+}
+#copyright{
+   text-align: center;
+   color:rgb(216 220 240 / 79%);
+}
