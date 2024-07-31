@@ -10,7 +10,8 @@ function handleLogout() {
     document.getElementById('main-content').style.display = 'none';
 }
 document.addEventListener("DOMContentLoaded", function () {
-    const FASTAPI_URL = "http://127.0.0.1:8000";
+    // const FASTAPI_URL = "http://127.0.0.1:8000";
+    const FASTAPI_URL = "https://time-savvy.onrender.com";
     const featureButton = document.querySelector(".btn-features");
     const feadbackButton = document.querySelector(".btn-feadback");
     const featureSection = document.querySelector(".features-section");
