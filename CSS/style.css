@@ -42,7 +42,7 @@ html {
 }
 
 body {
-   background: rgba(0, 0, 0, 0.5) url('bg.jpg');
+   background: rgba(0, 0, 0, 0.5) url('../Data/bg.jpg');
    font-family: "Lato", "Serif";
    background-size: cover;
    background-blend-mode: darken;
@@ -61,7 +61,7 @@ body {
 
 .navbar {
    width: 100%;
-   background: rgba(0, 0, 0, 0.7) url('bg.jpg');
+   background: rgba(0, 0, 0, 0.7) url('../Data/bg.jpg');
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -256,7 +256,7 @@ body {
    align-items: center;
    justify-content: center;
    padding: 2rem;
-   background: rgba(0, 0, 0, 0.5) url('feature.jpg');
+   background: rgba(0, 0, 0, 0.5) url('../Data/feature.jpg');
    background-size: cover;
    background-blend-mode: darken;
    background-position: center;
@@ -607,7 +607,7 @@ button:hover {
 }
 .subnavbar {
    width: 82%;
-   background: rgba(0, 0, 0, 0.7) url('bg.jpg');
+   background: rgba(0, 0, 0, 0.7) url('../Data/bg.jpg');
    display: flex;
    justify-content: space-around;
    align-items: center;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIMESAVVY</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="CSS\style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -14,13 +14,13 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html"> <img src="logo.png" alt="Company Logo"></a>
+            <a href="index.html"> <img src="Data\logo.png" alt="Company Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="TIME SAVVY MANUAL.pdf">User Manual</a></li>
-            <li><a href="TIMESAVVY.pdf">Documentation</a></li>
+            <li><a href="Data/TIME SAVVY MANUAL.pdf">User Manual</a></li>
+            <li><a href="Data/TIMESAVVY.pdf">Documentation</a></li>
             <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
     </nav>
@@ -337,7 +337,7 @@
                     <input type="file" id="employee-file" accept=".csv">
                     <button class="upload-button" id="upload-employee-button">Upload Employee Data</button>
                     <hr>
-                    <a href="sample_employee_data.csv" download="sample_employee_data.csv"
+                    <a href="Data/sample_employee_data.csv" download="sample_employee_data.csv"
                         class="download-button">Download Employee Data Sample File</a>
                 </div>
 
@@ -346,7 +346,7 @@
                     <input type="file" id="leavesheet-file" accept=".csv">
                     <button class="upload-button" id="upload-leavesheet-button">Upload Leavesheet</button>
                     <hr>
-                    <a href="sample_leavesheet_data.csv" download="sample_leavesheet_data.csv"
+                    <a href="Data/sample_leavesheet_data.csv" download="sample_leavesheet_data.csv"
                         class="download-button">Download Leavesheet Sample File</a>
                 </div>
 
@@ -355,7 +355,7 @@
                     <input type="file" id="holidaysheet-file" accept=".csv">
                     <button class="upload-button" id="upload-holidaysheet-button">Upload Holidaysheet</button>
                     <hr>
-                    <a href="Holiday_Demo_Data.csv" download="sample_holiday_data.csv" class="download-button">Download
+                    <a href="Data/Holiday_Demo_Data.csv" download="sample_holiday_data.csv" class="download-button">Download
                         Holiday Sample File</a>
                 </div>
             </div>
@@ -385,7 +385,6 @@
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="JS\index.js"></script>
 </body>
-
 </html>
