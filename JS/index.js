@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function handleLogin(indxxId) {
-        fetch(`http://127.0.0.1:8000/users/${indxxId}`, {
+        fetch(`${FASTAPI_URL}/users/${indxxId}`, {
             method: "GET",
             headers: { "Content-Type": "application/json" }
         })
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showTimesheet(empData) {
         toggleVisibility(['profile', 'fetch_time_sheet', 'admin_panel', 'comp_off', 'save'], 'none');
-        fetch(`http://127.0.0.1:8000/get_time_window/`)
+        fetch(`${FASTAPI_URL}/get_time_window/`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const monthIndex = document.getElementById('month').selectedIndex + 1;
             const userProfile = { indxx_id: empData.indxx_id };
             document.getElementById('sidebar').style.height = 'calc(285vh - 68px)';
-            fetch(`http://127.0.0.1:8000/time_sheet_data?indxx_id=${userProfile.indxx_id}&month=${monthIndex}&year=${year}`)
+            fetch(`${FASTAPI_URL}/time_sheet_data?indxx_id=${userProfile.indxx_id}&month=${monthIndex}&year=${year}`)
                 .then(response => response.json())
                 .then(data => {
                     const df_ts = data.data.map((row, index) => ({
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
             });
 
-            fetch('http://127.0.0.1:8000/add_timesheet/', {
+            fetch(`${FASTAPI_URL}/add_timesheet/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(df_ts),
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const userProfile = { indxx_id: empData.indxx_id };
             document.getElementById('sidebar').style.height = 'calc(275vh - 68px)';
 
-            fetch(`http://127.0.0.1:8000/time_sheet_data?indxx_id=${userProfile.indxx_id}&month=${monthIndex}&year=${year}`)
+            fetch(`${FASTAPI_URL}/time_sheet_data?indxx_id=${userProfile.indxx_id}&month=${monthIndex}&year=${year}`)
                 .then(response => response.json())
                 .then(data => {
                     const df_ts = data.data.map((row, index) => ({
@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("'From date' should be less than 'To date'")
             }
 
-            fetch("http://127.0.0.1:8000/comp_off", {
+            fetch(`${FASTAPI_URL}/comp_off`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -431,7 +431,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 newFreezeButton.addEventListener("click", function () {
                     const payld = { super_user_id: empData.indxx_id, freeze: true, unfreeze: false };
-                    fetch("http://127.0.0.1:8000/create_time_window/", {
+                    fetch(`${FASTAPI_URL}/create_time_window/`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -448,7 +448,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 newUnfreezeButton.addEventListener("click", function () {
                     const pyld = { super_user_id: empData.indxx_id, freeze: false, unfreeze: true };
-                    fetch("http://127.0.0.1:8000/create_time_window/", {
+                    fetch(`${FASTAPI_URL}/create_time_window/`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -465,7 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 projectCodesSelect.innerHTML = '';
                 tablesContainer.innerHTML = "";
                 chartContainer.innerHTML = "";
-                fetch('http://127.0.0.1:8000/project_names/')
+                fetch(`${FASTAPI_URL}/project_names/`)
                     .then(response => response.json())
                     .then(data => {
                         data.forEach(code => {
@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     function getInnerDictLength(data, key) {
                         return data && data[key] ? Object.keys(data[key]).length : 0;
                     }
-                    fetch("http://127.0.0.1:8000/timesheet_status", {
+                    fetch(`${FASTAPI_URL}/timesheet_status`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -601,7 +601,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         alert("Please enter an Indxx ID");
                         return;
                     }
-                    fetch(`http://127.0.0.1:8000/time_sheet_data?indxx_id=${indxxId}&month=${monthIndex}&year=${year}`)
+                    fetch(`${FASTAPI_URL}/time_sheet_data?indxx_id=${indxxId}&month=${monthIndex}&year=${year}`)
                         .then(response => response.json())
                         .then(data => {
                             const df_ts = data.data.map((row, index) => ({
@@ -661,7 +661,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         };
                     });
 
-                    fetch('http://127.0.0.1:8000/add_timesheet/', {
+                    fetch(`${FASTAPI_URL}/add_timesheet/`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(df_ts),
@@ -687,7 +687,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const newdownButton = downloadButton.cloneNode(true);
                 downloadButton.parentNode.replaceChild(newdownButton, downloadButton);
                 const statusDiv = document.getElementById('status');
-                fetch('http://127.0.0.1:8000/project_codes/')
+                fetch(`${FASTAPI_URL}/project_codes/`)
                     .then(response => response.json())
                     .then(data => {
                         // Populate project codes checkboxes
@@ -726,7 +726,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         year: parseInt(selectedYear, 10),
                     };
 
-                    fetch('http://127.0.0.1:8000/get_stoxx_timesheet/', {
+                    fetch(`${FASTAPI_URL}/get_stoxx_timesheet/`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
